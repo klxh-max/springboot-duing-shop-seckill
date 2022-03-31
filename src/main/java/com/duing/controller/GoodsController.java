@@ -18,6 +18,7 @@ public class GoodsController {
 
     @GetMapping("/")
     public List<Goods> list(){
+        System.out.println("asd");
         return goodsService.getGoods();
     }
 }
