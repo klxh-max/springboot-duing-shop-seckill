@@ -9,4 +9,5 @@ import java.util.List;
 public interface GoodsMapper {
 
     List<Goods> getGoods();
+    Goods getGoodsById(String goodsId);
 }

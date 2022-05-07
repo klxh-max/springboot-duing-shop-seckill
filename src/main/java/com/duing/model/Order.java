@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Goods {
+public class Order {
 
     private long id;
-    private String goodsId;
-    private String goodsName;
-    private String goodsType;
-    private Double price;
-    private String imgPath;
-
+    private String order_id;
+    private String user_id;
+    private String goods_id;
+    private String telephone;
+    private String address;
 
 }

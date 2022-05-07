@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>秒杀商品列表</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/goods.css}"/>
+</head>
+<body>
+
+<!--<h1>商品列表</h1><br>-->
+<!--<table class="table table-hover">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>商品名称</th>-->
+<!--        <th>商品图片</th>-->
+<!--        <th>商品类别</th>-->
+<!--        <th>商品原价</th>-->
+<!--        <th>商品秒杀价</th>-->
+<!--        <th>商品库存</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="vo:${voList}">-->
+<!--        <td th:text="${vo.goodsName}"></td>-->
+<!--        <td> <img th:src="@{${vo.imgPath}}" width="100" height="100"> </td>-->
+<!--        <td th:text="${vo.goodsType}"></td>-->
+<!--        <td th:text="${vo.price}+'元'"></td>-->
+<!--        <td th:text="${vo.seckillPrice}+'元'"></td>-->
+<!--        <td th:text="${vo.stockNum+'件'}"></td>-->
+<!--        <td>-->
+<!--            <a th:href="'/goodsDetail/'+${vo.goodsId}">-->
+<!--                <button class="btn btn-default" type="submit">进入详情页...</button>-->
+<!--            </a>-->
+<!--        </td>-->
+
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<div class="seckill_content">
+    <div class="title"><h2>秒杀商品列表</h2></div>
+    <div class="all_seckill_goods">
+        <div class="seckill_goods" th:each="goodsVo: ${voList}">
+            <h4 th:text="${goodsVo.goodsName}"></h4>
+            <img th:src="@{${goodsVo.imgPath}}" width="250" height="270"/>
+            <br/><br/>
+            <div class="seckill_price">
+                <p th:text="${goodsVo.goodsType}"></p>
+                <p>
+                    <span class="price1" th:text="${goodsVo.seckillPrice}+'元  '"></span>
+                    <del><span class="price2" th:text="${goodsVo.price}+'元'"></span></del>
+                </p>
+                <a th:href="'/goodsDetail/'+${goodsVo.goodsId}">
+                    <button class="btn btn-default" type="submit">进入详情页...</button>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

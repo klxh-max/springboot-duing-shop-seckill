@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duing.mapper.SeckillGoodsMapper">
+
+    <resultMap id="single" type="com.duing.model.SeckillGoods">
+        <id property="id" column="id"/>
+        <result property="goodsId" column="goods_id"/>
+        <result property="seckillPrice" column="seckill_price"/>
+        <result property="stockNum" column="stock_num"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+    </resultMap>
+
+    <select id="getSeckillGoodsById" resultType="com.duing.model.SeckillGoods" resultMap="single">
+        select id, goods_id, seckill_price, stock_num, start_time, end_time
+        from seckill_goods where goods_id = #{goodsId}
+    </select>
+
+    <select id="getAllSeckillGoods" resultType="com.duing.model.SeckillGoods" resultMap="single">
+        select id, goods_id, seckill_price, stock_num, start_time, end_time
+        from seckill_goods
+    </select>
+
+    <update id="reduceStockNum">
+         update seckill_goods SET stock_num=#{stockNum} where goods_id=#{goodsId}
+    </update>
+
+</mapper>

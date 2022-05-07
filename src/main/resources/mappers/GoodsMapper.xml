@@ -17,4 +17,10 @@
         select id, goods_id, goods_name, goods_type, price, img_path
         from goods
     </select>
+
+    <select id="getGoodsById" resultType="com.duing.model.Goods" resultMap="single">
+        select id, goods_id, goods_name, goods_type, price, img_path
+        from goods where goods_id = #{goodsId}
+    </select>
+
 </mapper>
